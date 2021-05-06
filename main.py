@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-# import uvicorn
 from pydantic import BaseModel
 from pathlib import Path
 
@@ -18,11 +17,11 @@ async def home():
 @app.post('/dangki')
 async def submit(out:myghi):
     name = out.name
-    if len(name) > 0:
+    if name != '':
         passwrod = out.passwrod
-        if len(passwrod) > 0:
+        if passwrod != '':
             trangthai = out.trangthai
-            if len(trangthai) > 0:
+            if trangthai != '':
                 data = {"name":name,"passwrod":passwrod,"trangthai":trangthai}
                 open(str(Path().absolute())+'\\data.json','a+', newline='', encoding="cp437", errors='ignore').write(str(data)+'<tach>')
                 return True
