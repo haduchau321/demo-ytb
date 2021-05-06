@@ -11,7 +11,7 @@ app = FastAPI()
 
 @app.get('/')
 async def home():
-    data = str(open('data.txt','r', encoding="cp437").read()).replace('\n',',').split('<tach>')
+    data = str(open('data.json','r', newline='', encoding="cp437", errors='ignore').read()).replace('\n',',').split('<tach>')
     return data
 
 @app.post('/dangki')
@@ -23,7 +23,7 @@ async def submit(out:myghi):
             trangthai = out.trangthai
             if trangthai != '':
                 data = {"name":name,"passwrod":passwrod,"trangthai":trangthai}
-                open('data.txt','a+', encoding="cp437").write(str(data)+'<tach>')
+                open('data.json','a+', newline='', encoding="cp437", errors='ignore').write(str(data)+'<tach>')
                 return True
             else:
                 return False
