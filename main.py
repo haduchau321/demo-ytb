@@ -24,7 +24,7 @@ async def submit(out:myghi):
             trangthai = out.trangthai
             if len(trangthai) > 0:
                 data = {"name":name,"passwrod":passwrod,"trangthai":trangthai}
-                open(str(Path().absolute())+'\\data.json','r', newline='', encoding="cp437", errors='ignore').write(str(data)+'<tach>')
+                open(str(Path().absolute())+'\\data.json','a+', newline='', encoding="cp437", errors='ignore').write(str(data)+'<tach>')
                 return True
             else:
                 return False
