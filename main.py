@@ -1,10 +1,21 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+
+class myghi(BaseModel):
+    name:str
+    passwrod:str
+    trangthai:str = False
 
 app = FastAPI()
 
-#domain where this api is hosted for example : localhost:5000/docs to see swagger documentation automagically generated.
+@app.get('/')
+async def home():
+    data = {'name':'haduchau','password':'yeutaodi123'}
+    return data
 
-
-@app.get("/")
-def home():
-    return {"message":"Hello TutLinks.com"}
+@app.post('/dangki')
+async def submit(out:myghi):
+    name = out.name
+    passwrod = out.passwrod
+    trangthai = out.trangthai
+    return out,True
