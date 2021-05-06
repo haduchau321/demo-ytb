@@ -18,4 +18,4 @@ async def submit(out:myghi):
     name = out.name
     passwrod = out.passwrod
     trangthai = out.trangthai
-    return out,True
+    return out
