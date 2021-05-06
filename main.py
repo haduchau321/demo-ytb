@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get('/')
 async def home():
-    data = {'name':'haduchau','password':'yeutaodi123'}
+    data = {'name':'haduchau','password':'yeutaodi123','data':'xin chào bạn đã bị tấn công'}
     return data
 
 @app.post('/dangki')
