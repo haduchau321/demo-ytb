@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from pathlib import Path
+import asyncio
+import uvloop
 
 class myghi(BaseModel):
     name:str
@@ -31,3 +33,6 @@ async def submit(out:myghi):
             return False
     else:
         return False
+    
+uvloop.install()
+asyncio.run(home())
